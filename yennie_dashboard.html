@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yennie 个人门户 - Final Clean</title>
+    <style>
+        /* Base Desktop Design */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .dashboard-container {
+            max-width: 1200px; 
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .dashboard-header {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        /* Calendar Full Width */
+        .calendar-view-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden; 
+            padding: 10px;
+        }
+
+        .calendar-iframe-wrapper {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+
+        /* Application Panel (Focus) */
+        .app-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px; 
+        }
+
+        .applications-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px;
+        }
+
+        .app-card {
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 60px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Custom Colors for App Sections */
+        .personal-app {
+            background-color: #fff3e0; 
+            border-left: 5px solid #ff9800; 
+        }
+
+        .express-app {
+            background-color: #ffe0f0; 
+            border-left: 5px solid #ff007f; 
+        }
+
+        .yihai-app-card {
+            background-color: #e9f5ff; 
+            border-left: 5px solid #007bff; 
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .app-icon {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .app-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .app-action-icon {
+            font-size: 20px;
+            color: #999;
+        }
+
+        /* ------------------------------------ */
+        /* 📱 Mobile & Tablet Optimization */
+        /* ------------------------------------ */
+
+        @media (max-width: 800px) {
+            .dashboard-container {
+                margin: 10px auto;
+                padding: 0 10px;
+            }
+            
+            .header-title {
+                font-size: 24px;
+            }
+
+            .application-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-card {
+                padding: 15px;
+                min-height: 50px;
+            }
+            
+            .app-icon {
+                font-size: 24px;
+            }
+
+            .app-name {
+                font-size: 15px;
+            }
+
+            .calendar-iframe-wrapper {
+                height: 550px;
+            }
+            
+            .applications-title {
+                font-size: 18px;
+            }
+            
+        } 
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header class="dashboard-header">
+            <div class="header-title">【Yennie个人门户】</div>
+        </header>
+        
+        <div class="calendar-view-container">
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?height=700&wkst=1&bgcolor=%23ffffff&mode=month&ctz=Asia%2FKuala_Lumpur
+                &src=yenniemuk%40gmail.com&color=%23dc143c 
+                &src=7c3c631b0b0db8dba3cec6184c07cb0612426db341e1fe9e2272bb660034778a%40group.calendar.google.com&color=%2366ff33
+                &src=onesorienenterprises%40gmail.com&color=%2366ff33
+                &src=family15202369781495529627%40group.calendar.google.com&color=%2366ff33" 
+                class="calendar-iframe-wrapper" 
+                frameborder="0" 
+                scrolling="no">
+            </iframe>
+        </div>
+
+
+        <div class="app-section">
+            <div class="applications-title">【我的个人应用】</div>
+            <div class="application-grid">
+                
+                <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" class="app-card personal-app">
+                    <div class="app-info">
+                        <span class="app-icon">📧</span>
+                        <div class="app-name">Gmail收件箱</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+                
+                <a href="https://drive.google.com/drive/my-drive" target="_blank" class="app-card personal-app">
+                    <div class="app-info">
+                        <span class="app-icon">📁</span>
+                        <div class="app-name">Google Drive</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+                
+                <a href="https://keep.google.com/u/0/?pli=1#home" target="_blank" class="app-card personal-app">
+                    <div class="app-info">
+                        <span class="app-icon">📝</span>
+                        <div class="app-name">Google Keep</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+
+            </div>
+        </div>
+        
+        <div class="app-section">
+            <div class="applications-title">【代运应用】</div>
+            <div class="application-grid">
+                
+                <a href="https://www.11-express.com/user.html?act=viewflow" target="_blank" class="app-card express-app">
+                    <div class="app-info">
+                        <span class="app-icon">📦</span>
+                        <div class="app-name">代运用户中心</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+                
+                <a href="https://www.11-express.com/help-59.html" target="_blank" class="app-card express-app">
+                    <div class="app-info">
+                        <span class="app-icon">💲</span>
+                        <div class="app-name">运费资讯</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+                
+                <a href="https://www.11-express.com/check_express.html" target="_blank" class="app-card express-app">
+                    <div class="app-info">
+                        <span class="app-icon">🔎</span>
+                        <div class="app-name">包裹查询</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="app-section">
+            <div class="applications-title">【颐海应用】</div>
+            <div class="application-grid">
+
+                <a href="https://hi.yihchina.net/qc-portal/" target="_blank" class="app-card yihai-app-card">
+                    <div class="app-info">
+                        <span class="app-icon">🏢</span>
+                        <div class="app-name">统一门户</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+
+                <a href="https://mailh.qiye.163.com/" target="_blank" class="app-card yihai-app-card">
+                    <div class="app-info">
+                        <span class="app-icon">📪</span>
+                        <div class="app-name">邮箱</div>
+                    </div>
+                    <span class="app-action-icon">→</span>
+                </a>
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
